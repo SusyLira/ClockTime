@@ -37,7 +37,7 @@ pipeline {
               snykTokenId: 'snyktoken',
               failOnIssues: true,
               monitorProjectOnBuild: true,
-              additionalArguments: '--all -projects --d'
+              additionalArguments: '--file=ClockTime.java'
                 )
             }
         }
