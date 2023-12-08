@@ -18,6 +18,7 @@ pipeline {
         stage('Run Snyk Open Source Scan') {
           steps {
             echo 'Testing...'
+            dir('/var/lib/jenkins/workspace/Snykp') {
             snykSecurity(
               snykInstallation: 'snykplugin',
               snykTokenId: 'snyktoken',
@@ -26,6 +27,7 @@ pipeline {
               additionalArguments: '--all -projects --d'
                 )
             }
+        }
         }
     
         stage('Run Snyk Code Scan') {
