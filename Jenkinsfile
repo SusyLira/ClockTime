@@ -3,7 +3,7 @@ pipeline {
     
     stages {
         
-        stage('git clone') {
+        stage('Checkout') {
             steps {
                 git url: 'https://github.com/SusyLira/ClockTime.git'
             }
