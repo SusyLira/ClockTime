@@ -37,7 +37,7 @@ pipeline {
               snykTokenId: 'snyktoken',
               failOnIssues: true,
               monitorProjectOnBuild: true,
-              additionalArguments: '--file=ClockTime.java'
+              additionalArguments: '--file=ClockTime.java --package-manager=maven'
                 )
             }
         }
