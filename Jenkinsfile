@@ -3,6 +3,19 @@ pipeline {
     
     stages {
         
+        stage('Print Current Directory') {
+            steps {
+                echo 'Current working directory:'
+                sh 'pwd'
+            }
+        }
+
+        stage('List Workspace Contents') {
+            steps {
+                echo 'Contents of workspace:'
+                sh 'ls -la'
+            }
+        }
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: 'SusyLira-patch-1']], userRemoteConfigs: [[url: 'https://github.com/SusyLira/ClockTime.git']]])
