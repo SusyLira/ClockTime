@@ -5,7 +5,7 @@ pipeline {
         
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/SusyLira/ClockTime.git'
+                checkout([$class: 'GitSCM', branches: [[name: 'SusyLira-patch-1']], userRemoteConfigs: [[url: 'https://github.com/SusyLira/ClockTime.git']]])
             }
         }
         
