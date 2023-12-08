@@ -5,7 +5,7 @@ pipeline {
         
         stage('git clone') {
             steps {
-                git url:'https://github.com/SusyLira/snykTest.git' 
+                git url: 'https://github.com/SusyLira/ClockTime.git'
             }
         }
         
