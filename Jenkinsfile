@@ -3,9 +3,9 @@ pipeline {
     
     stages {
         
-        stage('git clone') {
+        stage('Checkout') {
             steps {
-                git url:'https://github.com/SusyLira/snykTest.git' 
+                checkout([$class: 'GitSCM', branches: [[name: 'SusyLira-patch-1']], userRemoteConfigs: [[url: 'https://github.com/SusyLira/ClockTime.git']]])
             }
         }
         
@@ -18,14 +18,16 @@ pipeline {
         stage('Run Snyk Open Source Scan') {
           steps {
             echo 'Testing...'
+            dir('/var/lib/jenkins/workspace/Snykp') {
             snykSecurity(
               snykInstallation: 'snykplugin',
               snykTokenId: 'snyktoken',
               failOnIssues: true,
               monitorProjectOnBuild: true,
-              additionalArguments: '--all -projects --d'
+              additionalArguments: '--file=ClockTime.java'
                 )
             }
+        }
         }
     
         stage('Run Snyk Code Scan') {
